@@ -11,7 +11,7 @@ def convert(src_path, dst_path, cfg='s2twp.json'):
                 .replace('髮生', '發生')
                 .replace('髮出', '發出')
                 for line in src))
-    print("convert %s to %s" % (src_path, dst_path))
+    print(f"convert {src_path} to {dst_path}")
 
 
 if __name__ == '__main__':
@@ -20,4 +20,4 @@ if __name__ == '__main__':
     os.chdir(home)
     for f in os.listdir():
         if f.endswith('.md'):
-            convert(f, "zh-tw/" + f)
+            convert(f, f"zh-tw/{f}")

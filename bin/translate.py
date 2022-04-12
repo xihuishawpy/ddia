@@ -50,9 +50,13 @@ def repo(infolder, outfolder, cfg):
         print(f"Create {outfolder}")
     infiles = Path(infolder).resolve().glob("*.md")
     pair = [
-        {"infile": str(infile), "outfile": str(Path(outfolder).resolve() / infile.name)}
-        for idx, infile in enumerate(infiles)
+        {
+            "infile": str(infile),
+            "outfile": str(Path(outfolder).resolve() / infile.name),
+        }
+        for infile in infiles
     ]
+
     for p in pair:
         convert(p["infile"], p["outfile"], cfg)
 
